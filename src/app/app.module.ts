@@ -4,17 +4,22 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { ResultComponent } from './result/result.component';
+import { ResultService } from './result/result.service';
+import { AutoGrowDirective } from './auto-grow.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ResultComponent,
+    AutoGrowDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ResultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
