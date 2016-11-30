@@ -7,5 +7,12 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'HTML Analyser';
+
+  title: String = 'HTML Analyser';
+  isActive: boolean = false;
+
+  onRequestBtnClick() {
+    console.log('Button clicked');
+  }
+
 }

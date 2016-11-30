@@ -1,22 +1,18 @@
-import { Directive, ElementRef, Renderer } from '@angular/core';
+import { Directive, ElementRef, Renderer, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appAutoGrow]',
-  host: {
-    '(focus)': 'onFocus()',
-    '(blur)': 'onBlur()'
-  }
+  selector: '[appAutoGrow]'
 })
 export class AutoGrowDirective {
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer) { }
+  constructor(private el: ElementRef, private renderer: Renderer) { }
 
-  onFocus(){
-    this.renderer.setElementStyle(this.elementRef.nativeElement, 'width', '200');
+  @HostListener('focus') onFocus() {
+    this.renderer.setElementStyle(this.el.nativeElement, 'width', '200px');
   }
 
-  onBlur(){
-    this.renderer.setElementStyle(this.elementRef.nativeElement, 'width', '120');
+  @HostListener('blur') onBlur() {
+    this.renderer.setElementStyle(this.el.nativeElement, 'width', '120px');
   }
 
 }
