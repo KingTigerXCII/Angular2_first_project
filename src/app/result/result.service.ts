@@ -10,7 +10,7 @@ export class ResultService {
   }
 
   getTags(): string[] {
-    // REST API Call for Server
+    // Rest call
     return ['a1', 'a2', 'a3'];
   }
 

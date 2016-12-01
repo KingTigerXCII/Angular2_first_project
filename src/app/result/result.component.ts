@@ -8,8 +8,8 @@ import { ResultService } from './result.service';
 })
 export class ResultComponent implements OnInit {
 
-  titel;
-  tags;
+  private titel: String;
+  private tags: String[];
 
   constructor(resultService: ResultService) {
     this.titel = resultService.getTitel(); 

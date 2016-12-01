@@ -3,7 +3,9 @@
   {{ titel }}
 </h3>
 <ul>
-  <li *ngFor="let tag of tags">
-    {{ tag }}
-  </li>
+  <md-list>
+    <md-list-item *ngFor="let tag of tags">
+      {{ tag }}
+    </md-list-item>
+  </md-list>
 </ul>

@@ -8,11 +8,21 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
 
-  title: String = 'HTML Analyser';
-  isActive: boolean = false;
+  private htmlInputValue: String = '';
+  private isActive: boolean = false;
 
   onRequestBtnClick() {
-    console.log('Button clicked');
+    this.htmlInputValue = '';
+    this.isActive = false;
+    
+    // Call rest webservice
+  }
+
+  isHtmlInputValid() {
+    if (this.htmlInputValue.length > 0) {
+      return false;
+    }
+    return true;
   }
 
 }
