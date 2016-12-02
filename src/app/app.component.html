@@ -1,15 +1,31 @@
-<div>
-  <h1>HTML Analyser</h1> 
-</div>
+<md-sidenav-layout>
 
-<div>
-  <md-input placeholder="Url"
-  [(ngModel)]="htmlInputValue"></md-input>
+    <md-sidenav #start mode="side">
+        Start Sidenav.
+    </md-sidenav>
 
-  <button md-raised-button color="primary"
-  [disabled]="isHtmlInputValid()"
-  (click)="onRequestBtnClick()">Request</button>
-</div>
+    <md-toolbar [color]="primary">
+        <button md-button (click)="start.toggle()">
+            <i class="material-icons">menu</i>
+        </button>
+        
+        HTML Analyser
 
-<app-result></app-result>
-<app-result></app-result>
+        <span class="app-toolbar-filler"></span>
+
+        Bastian Winterott
+
+    </md-toolbar>
+
+    <div class="app-content">
+        <md-card>
+            <app-request-form></app-request-form>
+        </md-card>
+        <md-card>
+
+            <app-result></app-result>
+            <app-result></app-result>
+        </md-card>
+    </div>  
+
+</md-sidenav-layout>

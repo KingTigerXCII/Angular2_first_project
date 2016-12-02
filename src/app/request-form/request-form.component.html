@@ -1,0 +1,8 @@
+<div>
+  <md-input placeholder="Url"
+  [(ngModel)]="htmlInputValue"></md-input>
+
+  <button md-raised-button color="primary"
+  [disabled]="isHtmlInputValid()"
+  (click)="onRequestBtnClick()">Request</button>
+</div>

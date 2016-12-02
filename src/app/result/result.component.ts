@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ResultService } from './result.service';
+import { RequestService } from '../request-service/request.service';
 
 @Component({
   selector: 'app-result',
@@ -11,9 +11,9 @@ export class ResultComponent implements OnInit {
   private titel: String;
   private tags: String[];
 
-  constructor(resultService: ResultService) {
-    this.titel = resultService.getTitel(); 
-    this.tags = resultService.getTags();    
+  constructor(requestService: RequestService) {
+    this.titel = requestService.getTitel(); 
+    this.tags = requestService.getTags();    
   }
 
   ngOnInit() {

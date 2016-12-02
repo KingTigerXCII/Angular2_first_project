@@ -6,14 +6,18 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ResultComponent } from './result/result.component';
-import { ResultService } from './result/result.service';
+import { RequestService } from './request-service/request.service';
 import { AutoGrowDirective } from './auto-grow.directive';
+import { RequestFormComponent } from './request-form/request-form.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResultComponent,
-    AutoGrowDirective
+    AutoGrowDirective,
+    RequestFormComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +25,7 @@ import { AutoGrowDirective } from './auto-grow.directive';
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [ResultService],
+  providers: [RequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
