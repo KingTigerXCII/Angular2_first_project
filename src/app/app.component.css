@@ -1,5 +1,6 @@
 md-sidenav {
-  width: 250px;
+  min-width: 150px;
+  padding: 10px;
 }
 
 .app-toolbar-filler {

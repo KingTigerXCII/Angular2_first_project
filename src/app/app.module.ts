@@ -9,15 +9,13 @@ import { ResultComponent } from './result/result.component';
 import { RequestService } from './request-service/request.service';
 import { AutoGrowDirective } from './auto-grow.directive';
 import { RequestFormComponent } from './request-form/request-form.component';
-import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResultComponent,
     AutoGrowDirective,
-    RequestFormComponent,
-    NavigationComponent
+    RequestFormComponent
   ],
   imports: [
     BrowserModule,
