@@ -1,10 +1,12 @@
 <h2>Result</h2>
 <h3>
-  {{ titel }}
+  {{ result }}
+  <!-- {{ result?.title }} -->
 </h3>
+<h4>Tags</h4>
 <ul>
   <md-list>
-    <md-list-item *ngFor="let tag of tags">
+    <md-list-item *ngFor="let tag of result?.tags">
       {{ tag }}
     </md-list-item>
   </md-list>

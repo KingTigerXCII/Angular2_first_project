@@ -6,7 +6,8 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ResultComponent } from './result/result.component';
-import { RequestService } from './request-service/request.service';
+import { RequestService } from './request.service/request.service';
+import { ResultService } from './result.service/result.service';
 import { AutoGrowDirective } from './auto-grow.directive';
 import { RequestFormComponent } from './request-form/request-form.component';
 
@@ -23,7 +24,7 @@ import { RequestFormComponent } from './request-form/request-form.component';
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [RequestService],
+  providers: [RequestService, ResultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

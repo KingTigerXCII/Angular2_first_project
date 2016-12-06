@@ -19,7 +19,7 @@ export class RequestFormComponent implements OnInit {
     this.htmlInputValue = '';
     this.isActive = false;
     
-    // request to server
+    // request.service and @Output the result
   }
 
   isHtmlInputValid() {
