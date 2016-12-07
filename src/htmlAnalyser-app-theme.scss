@@ -8,8 +8,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$htmlAnalyser-app-primary: md-palette($md-blue);
-$htmlAnalyser-app-accent:  md-palette($md-deep-orange);
+$htmlAnalyser-app-primary: md-palette($md-light-blue);
+$htmlAnalyser-app-accent:  md-palette($md-blue-grey);
 
 // The warn palette is optional (defaults to red).
 $htmlAnalyser-app-warn:    md-palette($md-red);

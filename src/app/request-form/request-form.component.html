@@ -1,8 +1,8 @@
-<div>
-  <md-input placeholder="Url"
-  [(ngModel)]="htmlInputValue"></md-input>
+<md-card>
+    <md-input placeholder="Url"
+    [(ngModel)]="htmlInputValue"></md-input>
 
-  <button md-raised-button color="primary"
-  [disabled]="isHtmlInputValid()"
-  (click)="onRequestBtnClick()">Request</button>
-</div>
+    <button md-raised-button color="accent"
+    [disabled]="isHtmlInputValid()"
+    (click)="onRequestBtnClick()">Request</button>
+</md-card>

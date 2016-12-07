@@ -1,13 +1,15 @@
-<h2>Result</h2>
-<h3>
-  {{ result }}
-  <!-- {{ result?.title }} -->
-</h3>
-<h4>Tags</h4>
-<ul>
-  <md-list>
-    <md-list-item *ngFor="let tag of result?.tags">
-      {{ tag }}
-    </md-list-item>
-  </md-list>
-</ul>
+<md-card>
+  <md-toolbar color="accent">Result</md-toolbar>
+  <md-card-content>
+    <h3>
+      {{ result }}
+      <!-- {{ result?.title }} -->
+    </h3>
+    <h4>Tags</h4>
+    <md-list>
+      <md-list-item *ngFor="let tag of result?.tags">
+        {{ tag }}
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>
