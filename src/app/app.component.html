@@ -3,6 +3,7 @@
     <md-sidenav #start mode="side">
         <nav>
             <md-list>
+                <md-list-item><a >About me</a></md-list-item>
                 <md-list-item><a>HTML Analyser</a></md-list-item>
                 <md-list-item><a>HTML Analyser - Results</a></md-list-item>
             </md-list>
@@ -14,17 +15,17 @@
             <i class="material-icons">menu</i>
         </button>
         
-        HTML Analyser
+        Bastian Winterott
 
         <span class="app-toolbar-filler"></span>
 
-        Bastian Winterott
+        Current page
 
     </md-toolbar>
 
     <div class="app-content">
         <app-request-form></app-request-form>
-        <app-result result="www.Test.de"></app-result>
+        <app-result isActive="false" result="pageResult = { name: 'www.Test.de', tags: ['li, div, a'] }"></app-result>
     </div>  
 
 </md-sidenav-layout>

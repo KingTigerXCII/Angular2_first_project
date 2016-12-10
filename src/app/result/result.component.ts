@@ -9,7 +9,8 @@ import { ResultService } from '../result.service/result.service';
 export class ResultComponent implements OnInit {
 
   // change the string to an object
-  @Input() result: String;
+  @Input() pageResult: any;
+  @Input() isActive: boolean;
 
   constructor(resultService: ResultService) {
 

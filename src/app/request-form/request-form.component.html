@@ -1,8 +1,14 @@
 <md-card>
-    <md-input placeholder="Url"
-    [(ngModel)]="htmlInputValue"></md-input>
+    <md-input 
+        placeholder="Url"
+        [(ngModel)]="urlInputValue">
+        <md-hint *ngIf="errorMessage != ''" [ngStyle]="{'color': 'red'}">{{ errorMessage }}</md-hint>
+    </md-input>
 
-    <button md-raised-button color="accent"
-    [disabled]="isHtmlInputValid()"
-    (click)="onRequestBtnClick()">Request</button>
+    <button
+        md-raised-button color="accent"
+        [disabled]="isUrlInputEmpty()"
+        (click)="onRequestBtnClick()">
+        Request
+    </button>
 </md-card>
