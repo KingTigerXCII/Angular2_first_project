@@ -28,7 +28,7 @@ export class RequestFormComponent implements OnInit {
     }
 
     // do something in the backend and validate data(db or new dataset)
-    this.pageResult = { name: 'www.Test.de', tags: ['li, div, a'] };
+    this.pageResult = { name: 'www.Test.de', tags: ['li', 'div', 'a'] };
 
     this.urlInputValue = '';
     this.errorMessage = '';
@@ -39,7 +39,6 @@ export class RequestFormComponent implements OnInit {
     if (this.urlInputValue.length > 0) {
       return false;
     }
-
     return true;
   }
 
