@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { PageResult } from '../shared/pageResult';
 
 @Component({
   selector: 'app-request-form',
@@ -8,9 +9,9 @@ import { Component, OnInit, Output } from '@angular/core';
 export class RequestFormComponent implements OnInit {
 
   @Output() isActive: boolean = false;
-  @Output() pageResult: any;
+  @Output() pageResult = new PageResult();
 
-  private urlInputValue: String = '';
+  private urlInputValue: String;
   private errorMessage: String = '';
 
   constructor() { }
@@ -28,7 +29,7 @@ export class RequestFormComponent implements OnInit {
     }
 
     // do something in the backend and validate data(db or new dataset)
-    this.pageResult = { name: 'www.Test.de', tags: ['li', 'div', 'a'] };
+    this.pageResult = { id: 1, title: 'www.Test.de', tags: ['li', 'div', 'a'] };
 
     this.urlInputValue = '';
     this.errorMessage = '';

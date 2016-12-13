@@ -1,8 +1,12 @@
 <md-card>
     <md-input 
         placeholder="Url"
-        [(ngModel)]="urlInputValue">
-        <md-hint *ngIf="errorMessage != ''" [ngStyle]="{'color': 'red'}">{{ errorMessage }}</md-hint>
+        id="url"
+        url="url"
+        [(ngModel)]="urlInputValue"
+        #url="ngModel"
+        required>
+        <md-hint *ngIf="url.errors.required && (url.dirty || url.touched)" [ngStyle]="{'color': 'red'}"> Url is required </md-hint>            
     </md-input>
 
     <button
