@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ResultService } from '../result.service/result.service';
+import { PageResult } from '../shared/pageResult';
 
 @Component({
   selector: 'app-result',
@@ -7,10 +8,6 @@ import { ResultService } from '../result.service/result.service';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-
-  // change the string to an object
-  @Input() pageResult: any;
-  @Input() isActive: boolean;
 
   constructor(resultService: ResultService) {
 

@@ -1,18 +1,36 @@
-<md-card>
-    <md-input 
-        placeholder="Url"
-        id="url"
-        url="url"
-        [(ngModel)]="urlInputValue"
-        #url="ngModel"
-        required>
-        <md-hint *ngIf="url.errors.required && (url.dirty || url.touched)" [ngStyle]="{'color': 'red'}"> Url is required </md-hint>            
-    </md-input>
+<form>
+    <md-card>
+        <md-input
+            placeholder="Url"
+            name="url"
+            [(ngModel)]="pageUrl"
+            #url="ngModel" 
+            required>
+            <md-hint *ngIf="urlHasErrors() && (url.dirty || url.touched)" [ngStyle]="{'color': 'red'}"> {{ errorMessage }} </md-hint>            
+        </md-input>
 
-    <button
-        md-raised-button color="accent"
-        [disabled]="isUrlInputEmpty()"
-        (click)="onRequestBtnClick()">
-        Request
-    </button>
-</md-card>    
+        <button
+            md-raised-button color="accent"
+            [disabled]="urlHasErrors()"
+            (click)="onRequestBtnClick()">
+            Request
+        </button>
+    </md-card>
+
+    <div>ngIf... Loading......</div>
+    <md-card class="result" *ngIf="isActive">
+        <md-toolbar color="accent">Result</md-toolbar>
+        <md-card-content>
+            <h3>
+            {{ pageResult?.name }}
+            </h3>
+            <h4>Tags</h4>
+            <md-list>
+            <md-list-item *ngFor="let tag of pageResult?.tags">
+                {{ tag }}
+            </md-list-item>
+            </md-list>
+        </md-card-content>
+    </md-card>          
+</form>
+  

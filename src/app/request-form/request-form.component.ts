@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { RequestService } from '../request.service/request.service';
 import { PageResult } from '../shared/pageResult';
 
 @Component({
@@ -8,39 +9,34 @@ import { PageResult } from '../shared/pageResult';
 })
 export class RequestFormComponent implements OnInit {
 
-  @Output() isActive: boolean = false;
-  @Output() pageResult = new PageResult();
+  private isActive: boolean = false;
+  private pageResult: PageResult;
+  private pageUrl: string = '';
+  private errorMessage: string;
 
-  private urlInputValue: String;
-  private errorMessage: String = '';
-
-  constructor() { }
+  constructor(private requestService: RequestService) { }
 
   ngOnInit() {
   }
 
   onRequestBtnClick(): void {
+    this.getPageResultFromServer(this.pageUrl);
 
-    let temp = this.urlInputValue.substr(0, 3);
-
-    if (!(temp === 'www')) {
-      this.errorMessage = 'Invalid url';
-      return;
-    }
-
-    // do something in the backend and validate data(db or new dataset)
-    this.pageResult = { id: 1, title: 'www.Test.de', tags: ['li', 'div', 'a'] };
-
-    this.urlInputValue = '';
+    this.pageUrl = '';
     this.errorMessage = '';
     this.isActive = true;
   }
 
-  isUrlInputEmpty(): boolean {
-    if (this.urlInputValue.length > 0) {
-      return false;
+  urlHasErrors(): boolean {
+    if (!(this.pageUrl.length > 0)) {
+      this.errorMessage = 'Url is required';     
+      return true;
     }
-    return true;
+    return false;
+  }
+
+  getPageResultFromServer(pageUrl: string): void {
+    this.requestService.getPageResultFromServer(pageUrl).then(pageResult => this.pageResult = pageResult);
   }
 
 }
