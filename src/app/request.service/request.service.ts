@@ -18,12 +18,13 @@ export class RequestService {
     console.log('getSlowlyResult');
     return new Promise<PageResult>(resolve =>
     setTimeout(resolve, 5000))
-    .then(() => this.getPageResultFromServer(pageUrl)); 
+    .then(() => this.getPageResult(pageUrl)); 
   }
 
   getPageResult(pageUrl: string): Promise<PageResult> {
     console.log('getPageResult');
     this.pageUrl = pageUrl;
+    // get result from database or run the python script on server
     return Promise.resolve(PAGERESULT);
   }
 

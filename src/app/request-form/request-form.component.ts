@@ -1,6 +1,9 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import { RequestService } from '../request.service/request.service';
 import { PageResult } from '../shared/pageResult';
+import { UrlValidators } from './urlValidators';
 
 @Component({
   selector: 'app-request-form',
@@ -9,30 +12,24 @@ import { PageResult } from '../shared/pageResult';
 })
 export class RequestFormComponent implements OnInit {
 
-  private isActive: boolean = false;
+  private requestForm: FormGroup;
   private pageResult: PageResult;
-  private pageUrl: string = '';
-  private errorMessage: string;
 
-  constructor(private requestService: RequestService) { }
+  constructor(private fb: FormBuilder, private requestService: RequestService) {
+    this.requestForm = fb.group({
+      url: ['', Validators.required]
+    });
+   }
 
   ngOnInit() {
   }
 
-  onRequestBtnClick(): void {
-    this.getPageResultFromServer(this.pageUrl);
-
-    this.pageUrl = '';
-    this.errorMessage = '';
-    this.isActive = true;
-  }
-
-  urlHasErrors(): boolean {
-    if (!(this.pageUrl.length > 0)) {
-      this.errorMessage = 'Url is required';     
-      return true;
-    }
-    return false;
+  request(): void {
+    this.getPageResultFromServer(this.requestForm.get('url').value);
+    
+    //this.form.find().setErrors({
+    //  invalidUrl:
+    //})
   }
 
   getPageResultFromServer(pageUrl: string): void {
