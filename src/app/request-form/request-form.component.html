@@ -1,24 +1,25 @@
 <form [formGroup]="requestForm" (ngSubmit)="request()">
     <md-card>
-        <md-input-container>
-            <input md-input
+        <!-- <md-input-container> ****** Next version of material-->
+            <md-input
                 placeholder="Url"
                 type="url"
                 formControlName="url">
-            <md-hint *ngIf="url.errors.required && (url.dirty || url.touched)" [ngStyle]="{'color': 'red'}"> {{ errorMessage }} </md-hint>            
-        </md-input-container>
+                <md-hint *ngIf="url.hasError('required') && (url.dirty || url.touched)" [ngStyle]="{'color': 'red'}"> 
+                    Url is required 
+                </md-hint>
+            </md-input>           
+        <!-- </md-input-container> -->
 
         <button
             md-raised-button color="accent"
             type="submit"
-            [disabled]="!form.valid">
+            [disabled]="!requestForm.valid">
             Request
         </button>
     </md-card>
 
-    <!-- <div *ngIf="button.control.pending">ngIf... Loading......</div> -->
-    <!-- <div *ngIf="button.errors"></div> -->
-    <md-card class="result" *ngIf="isActive">
+    <md-card class="result" *ngIf="pageResult != null">
         <md-toolbar color="accent">Result</md-toolbar>
         <md-card-content>
             <h3>
