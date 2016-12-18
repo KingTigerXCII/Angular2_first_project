@@ -5,7 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { ResultComponent } from './result/result.component';
+import { ResultListComponent } from './resultList/resultList.component';
 import { RequestService } from './request.service/request.service';
 import { ResultService } from './result.service/result.service';
 import { AutoGrowDirective } from './auto-grow.directive';
@@ -14,7 +14,7 @@ import { RequestFormComponent } from './request-form/request-form.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ResultComponent,
+    ResultListComponent,
     AutoGrowDirective,
     RequestFormComponent
   ],

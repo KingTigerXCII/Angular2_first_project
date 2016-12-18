@@ -1,31 +1,43 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+
 import { PageResult } from '../shared/pageResult';
 import { PAGERESULT } from './mock-request';
 
 @Injectable()
 export class RequestService {
 
+  private backendUrl = 'app/pageResult';
   private pageUrl: string;
 
-  constructor() { }
+  constructor(private http: Http) { }
 
-  getPageResultFromServer(pageUrl: string): Promise<PageResult> {
-    console.log('getPageResultFromServer');
-    return this.getSlowlyResult(pageUrl);
+  public getPageResultFromServer(pageUrl: string): Observable<PageResult> {
+    return this.getSlowlyResult(pageUrl) // invoke http.get
+            .map(this.extractData) // map json to object PageResult
+            .catch(this.handleError);
   }
 
-  getSlowlyResult(pageUrl: string): Promise<PageResult> {
-    console.log('getSlowlyResult');
-    return new Promise<PageResult>(resolve =>
-    setTimeout(resolve, 5000))
-    .then(() => this.getPageResult(pageUrl)); 
+  private extractData(res: Response) {
+    let body = res.json();
+    return body.data || {};
   }
 
-  getPageResult(pageUrl: string): Promise<PageResult> {
-    console.log('getPageResult');
-    this.pageUrl = pageUrl;
-    // get result from database or run the python script on server
-    return Promise.resolve(PAGERESULT);
+  private handleError(error: Response | any) {
+    let errMsg: string;
+    return Observable.throw(errMsg);
+  }
+
+  getSlowlyResult(pageUrl: string) {
+    let obj: any = {
+      'id' : 1,
+      'url' : pageUrl,
+      'title' : 'Test',
+      'tags' : ['li', 'div', 'h1', 'a']
+    };
+
+    return <JSON>obj;
   }
 
 }

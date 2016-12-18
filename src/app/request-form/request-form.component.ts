@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
 
 import { RequestService } from '../request.service/request.service';
 import { PageResult } from '../shared/pageResult';
-import { UrlValidators } from './urlValidators';
 
 @Component({
   selector: 'app-request-form',
@@ -16,6 +16,7 @@ export class RequestFormComponent implements OnInit {
   private url: AbstractControl;
 
   private pageResult: PageResult;
+  private errorMessage: string;
 
   constructor(private fb: FormBuilder, private requestService: RequestService) {
     this.requestForm = fb.group({
@@ -33,8 +34,11 @@ export class RequestFormComponent implements OnInit {
     this.getPageResultFromServer(this.requestForm.get('url').value);
   }
 
-  getPageResultFromServer(pageUrl: string): void {
-    this.requestService.getPageResultFromServer(pageUrl).then(pageResult => this.pageResult = pageResult);
+  private getPageResultFromServer(pageUrl: string): void {
+    this.requestService.getPageResultFromServer(pageUrl)
+                        .subscribe(
+                          pageResult => this.pageResult = pageResult,
+                          error => this.errorMessage = <any>error);                       
   }
 
 }
