@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 
-import { RequestService } from '../request.service/request.service';
-import { PageResult } from '../shared/pageResult';
+import { PageResultService } from '../pageResult.service/pageResult.service';
+import { PageResult } from '../model/pageResult';
 
 @Component({
   selector: 'app-request-form',
@@ -18,7 +18,7 @@ export class RequestFormComponent implements OnInit {
   private pageResult: PageResult;
   private errorMessage: string;
 
-  constructor(private fb: FormBuilder, private requestService: RequestService) {
+  constructor(private fb: FormBuilder, private pageResultService: PageResultService) {
     this.requestForm = fb.group({
       url: ['', Validators.required]
     });
@@ -31,14 +31,15 @@ export class RequestFormComponent implements OnInit {
   }
 
   request(): void {
-    this.getPageResultFromServer(this.requestForm.get('url').value);
+    this.getPageResult(this.requestForm.get('url').value);
   }
 
-  private getPageResultFromServer(pageUrl: string): void {
-    this.requestService.getPageResultFromServer(pageUrl)
-                        .subscribe(
-                          pageResult => this.pageResult = pageResult,
-                          error => this.errorMessage = <any>error);                       
+  private getPageResult(pageUrl: string): void {
+    this.pageResultService.getPageResult(pageUrl)
+                         .subscribe(
+                           pageResult => this.pageResult = pageResult,
+                           error => this.errorMessage = <any>error); 
+    console.log(this.pageResult);                      
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ResultService } from '../result.service/result.service';
-import { PageResult } from '../shared/pageResult';
+import { PageResultService } from '../pageResult.service/pageResult.service';
+import { PageResult } from '../model/pageResult';
 
 @Component({
   selector: 'app-resultList',
@@ -9,7 +9,7 @@ import { PageResult } from '../shared/pageResult';
 })
 export class ResultListComponent implements OnInit {
 
-  constructor(resultService: ResultService) {
+  constructor(pageResultService: PageResultService) {
 
   }
 
