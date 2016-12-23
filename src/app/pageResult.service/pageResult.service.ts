@@ -13,7 +13,7 @@ export class PageResultService {
 
   public getPageResult(pageUrl: string): Observable<PageResult> {
     return this.http.get(this.pageResultsUrl)
-                    .map((res: Response) => console.log(res.json()))
+                    .map((res: Response) => res.json())
                     .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
