@@ -7,13 +7,13 @@ import { PageResult } from '../model/pageResult';
 @Injectable()
 export class PageResultService {
 
-  private pageResultsUrl = 'http://localhost:4200/api/rest/pageResults';
+  private pageResultsUrl = 'app/pageResult.service/pageResult.json';
 
   constructor(private http: Http) { }
 
   public getPageResult(pageUrl: string): Observable<PageResult> {
     return this.http.get(this.pageResultsUrl)
-                    .map((res: Response) => res.json())
+                    .map((res: Response) => console.log(res.json()))
                     .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
@@ -31,17 +31,6 @@ export class PageResultService {
 
   public removePageResult(pageUrl: string): Observable<PageResult> {
     return;
-  }
-
-  private getMockJsonPageResult(pageUrl: string): JSON {
-    let jsonObj: any = {
-      'id' : 1,
-      'url' : pageUrl,
-      'title' : 'Test',
-      'tags' : ['li', 'div', 'h1', 'a']
-    };
-
-    return <JSON>jsonObj;
   }
 
 }

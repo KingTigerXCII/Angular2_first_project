@@ -38,8 +38,8 @@ export class RequestFormComponent implements OnInit {
     this.pageResultService.getPageResult(pageUrl)
                          .subscribe(
                            pageResult => this.pageResult = pageResult,
-                           error => this.errorMessage = <any>error); 
-    console.log(this.pageResult);                      
+                           error => this.errorMessage = <any>error);
+    console.log(this.pageResult);
   }
 
 }

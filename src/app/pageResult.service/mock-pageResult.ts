@@ -1,3 +1,6 @@
-import { PageResult } from '../model/PageResult';
-
-export const PAGERESULT: PageResult = { id: 1, url: 'www.Test.de', title: 'Test', tags: ['li', 'div', 'a'] };
+import { InMemoryDbService } from 'angular-in-memory-web-api';
+export class PageResultMock implements InMemoryDbService {
+    createDB() {
+        
+    }
+}
