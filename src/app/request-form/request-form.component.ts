@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
 
 import { PageResultService } from '../pageResult.service/pageResult.service';
 import { PageResult } from '../model/pageResult';

@@ -3,9 +3,9 @@
     <md-sidenav #start mode="side">
         <nav>
             <md-list>
-                <md-list-item><a>About me</a></md-list-item>
-                <md-list-item><a>HTML Analyser</a></md-list-item>
-                <md-list-item><a>HTML Analyser - Results</a></md-list-item>
+                <md-list-item><a routerLink="/aboutMe">About me</a></md-list-item>
+                <md-list-item><a routerLink="/htmlAnalyser">HTML Analyser</a></md-list-item>
+                <md-list-item><a routerLink="/htmlAnalyserResults">HTML Analyser - Results</a></md-list-item>
             </md-list>
         </nav>
     </md-sidenav>
@@ -24,7 +24,8 @@
     </md-toolbar>
 
     <div class="app-content">
-        <app-request-form></app-request-form>
+        <router-outlet></router-outlet>
+        <!-- <app-request-form></app-request-form> -->
     </div>  
 
 </md-sidenav-layout>
