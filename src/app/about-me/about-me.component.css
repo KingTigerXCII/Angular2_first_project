@@ -1,5 +1,5 @@
 md-card {
-  margin: 20px;
+  margin: 20px 40px 20px;
 }
 
 .aboutMe {
@@ -7,5 +7,5 @@ md-card {
 }
 
 md-card md-card-content {
-  margin: 10px;
+  margin: 10px 20px 10px;
 }
