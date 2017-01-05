@@ -29,15 +29,18 @@ import { PageResultService } from './pageResult.service/pageResult.service';
       },
       {
         path: 'aboutMe',
-        component: AboutMeComponent
+        component: AboutMeComponent,
+        data: { title: 'About me' }
       },
       {
         path: 'htmlAnalyser',
-        component: RequestFormComponent
+        component: RequestFormComponent,
+        data: { title: 'HTML Analyser' }
       },
       {
         path: 'htmlAnalyserResults',
-        component: ResultListComponent
+        component: ResultListComponent,
+        data: { title: 'HTML Analyser Results' }
       }
     ]),
     ReactiveFormsModule,
