@@ -1,6 +1,8 @@
 <form [formGroup]="requestForm" (ngSubmit)="request()">
-    <md-card>
-        <!-- <md-input-container> ****** Next version of material-->
+    <md-card class="request-form">
+        <md-toolbar color="accent">&lt;Request-Form&gt;</md-toolbar>
+        <md-card-content>
+            <!-- <md-input-container> ****** Next version of material-->
             <md-input
                 placeholder="Url"
                 type="url"
@@ -9,18 +11,19 @@
                     Url is required 
                 </md-hint>
             </md-input>           
-        <!-- </md-input-container> -->
+            <!-- </md-input-container> -->
 
-        <button
-            md-raised-button color="accent"
-            type="submit"
-            [disabled]="!requestForm.valid">
-            Request
-        </button>
+            <button
+                md-raised-button color="accent"
+                type="submit"
+                [disabled]="!requestForm.valid">
+                Request
+            </button>
+        </md-card-content>
     </md-card>
 
     <md-card class="result" *ngIf="pageResult != null">
-        <md-toolbar color="accent">Result</md-toolbar>
+        <md-toolbar color="accent">&lt;Result&gt;</md-toolbar>
         <md-card-content>
             <h3>
             {{ pageResult?.url }}

@@ -9,6 +9,8 @@ import { PageResult } from '../model/pageResult';
 })
 export class ResultListComponent implements OnInit {
 
+  private analyserResults: PageResult[];
+
   constructor(pageResultService: PageResultService) {
 
   }

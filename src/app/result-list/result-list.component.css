@@ -1,0 +1,11 @@
+md-card {
+  margin: 20px 40px 20px;
+}
+
+.resultList {
+  padding: 0;
+}
+
+md-card md-card-content {
+  margin: 10px 20px 10px;
+}

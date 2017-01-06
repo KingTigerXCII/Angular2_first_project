@@ -3,4 +3,4 @@ export class PageResult {
     public title: string;
     public url: string;
     public tags: string[];
-}
+};

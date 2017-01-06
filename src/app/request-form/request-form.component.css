@@ -2,6 +2,10 @@ md-card {
   margin: 20px 40px 20px;
 }
 
+.request-form {
+  padding: 0;
+}
+
 .result {
   padding: 0;
 }

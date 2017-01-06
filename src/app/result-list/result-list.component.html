@@ -1,4 +1,10 @@
-<md-card>
-  <!-- List of Results from db -->
-  <h1>Result List</h1>
+<md-card class="resultList">
+  <md-toolbar color="accent">&lt;Results&gt;</md-toolbar>
+  <md-card-content>
+    <md-list>
+        <md-list-item *ngFor="let url of analyserResults?.url">
+            {{ url }}
+        </md-list-item>
+    </md-list>
+  </md-card-content>
 </md-card>
